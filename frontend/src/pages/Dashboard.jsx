@@ -41,6 +41,7 @@ export default function Dashboard() {
         <div className="left-panel">
           <h3>Categories</h3>
           <p>Action</p>
+          <p>Sci-Ficition</p>
           <p>Comedy</p>
           <p>Drama</p>
           <p>Horror</p>

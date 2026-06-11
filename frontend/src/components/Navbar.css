@@ -1,0 +1,60 @@
+.navbar {
+  height: 70px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: crimson;
+}
+
+.search-box {
+  flex: 1;
+  margin: 0 40px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.nav-right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.login-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sub-navbar {
+  height: 50px;
+  background: #f5f5f5;
+
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  padding-left: 50px;
+}
+
+.sub-navbar a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}

@@ -1,26 +1,60 @@
-import { useParams, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Booking() {
-  const { movieId } = useParams();
+  const navigate = useNavigate();
+
+  const theatres = [
+    {
+      name: "PVR Elante",
+      timings: ["02:30 PM", "04:10 PM", "06:30 PM"]
+    },
+    {
+      name: "PVR Mohali",
+      timings: ["03:00 PM", "05:30 PM", "08:00 PM"]
+    },
+    {
+      name: "Piccadily Square",
+      timings: ["02:15 PM", "06:00 PM"]
+    }
+  ];
+
+  const handleBooking = (time) => {
+    navigate("/seats", {
+      state: { showTime: time }
+    });
+  };
 
   return (
-    <div>
-      <h1>Movie Booking</h1>
+    <div style={{ padding: "20px" }}>
+      <h1>Select Theatre & Show Time</h1>
 
-      <p>Selected Movie ID: {movieId}</p>
+      {theatres.map((theatre, index) => (
+        <div
+          key={index}
+          style={{
+            border: "1px solid #ddd",
+            marginBottom: "20px",
+            padding: "15px",
+            borderRadius: "10px"
+          }}
+        >
+          <h3>{theatre.name}</h3>
 
-      <h3>Select Show Time</h3>
-
-      <button>10:00 AM</button>
-      <button>2:00 PM</button>
-      <button>6:00 PM</button>
-
-      <br />
-      <br />
-
-      <Link to="/seats/1">
-        <button>Proceed to Seat Selection</button>
-      </Link>
+          {theatre.timings.map((time) => (
+            <button
+              key={time}
+              onClick={() => handleBooking(time)}
+              style={{
+                margin: "10px",
+                padding: "10px 20px",
+                border: "2px solid green"
+              }}
+            >
+              {time}
+            </button>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

@@ -1,9 +1,13 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function SeatAllocation() {
   const [selectedSeats, setSelectedSeats] = useState([]);
 
-  const seats = Array.from({ length: 25 }, (_, i) => i + 1);
+  const seats = Array.from(
+    { length: 50 },
+    (_, i) => i + 1
+  );
 
   const toggleSeat = (seat) => {
     if (selectedSeats.includes(seat)) {
@@ -15,15 +19,33 @@ export default function SeatAllocation() {
     }
   };
 
+ const confirmBooking = () => {
+  if (selectedSeats.length === 0) {
+    Swal.fire({
+      title: "No Seat Selected",
+      text: "Please select at least one seat.",
+      icon: "warning",
+    });
+    return;
+  }
+
+  Swal.fire({
+    title: "Booking Successful!",
+    text: `Seats: ${selectedSeats.join(", ")}`,
+    icon: "success",
+    confirmButtonText: "OK",
+  });
+};
+
   return (
-    <div>
-      <h1>Seat Allocation</h1>
+    <div style={{ padding: "30px" }}>
+      <h1>Select Your Seats</h1>
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(5,60px)",
-          gap: "10px",
+          gridTemplateColumns: "repeat(10,60px)",
+          gap: "10px"
         }}
       >
         {seats.map((seat) => (
@@ -31,9 +53,11 @@ export default function SeatAllocation() {
             key={seat}
             onClick={() => toggleSeat(seat)}
             style={{
-              backgroundColor: selectedSeats.includes(seat)
-                ? "green"
-                : "lightgray",
+              height: "50px",
+              background:
+                selectedSeats.includes(seat)
+                  ? "green"
+                  : "#ddd"
             }}
           >
             {seat}
@@ -43,10 +67,22 @@ export default function SeatAllocation() {
 
       <h3>
         Selected Seats:
+        {" "}
         {selectedSeats.join(", ")}
       </h3>
 
-      <button>Confirm Booking</button>
+      <button
+        onClick={confirmBooking}
+        style={{
+          marginTop: "20px",
+          padding: "15px 30px",
+          background: "crimson",
+          color: "white",
+          border: "none"
+        }}
+      >
+        Confirm Booking
+      </button>
     </div>
   );
 }

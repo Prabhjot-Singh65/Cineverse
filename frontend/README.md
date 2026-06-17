@@ -1,8 +1,9 @@
 # CineVerse 🎬
 
-CineVerse is a full-stack movie ticket booking application. Users can browse movies, view show timings, select seats, and book tickets seamlessly.
+CineVerse is a full-stack movie ticket booking application inspired by BookMyShow. Users can browse movies, view show timings, select seats, and book tickets seamlessly.
 
 ## Features
+
 - User Login & Signup
 - Movie Dashboard
 - Movie Search & Categories
@@ -12,12 +13,10 @@ CineVerse is a full-stack movie ticket booking application. Users can browse mov
 - Responsive UI
 
 ## Tech Stack
+
 - React.js
 - React Router DOM
 - Node.js & Express.js
 - MongoDB
 - SweetAlert2
 - Vite
-
-## Project Status
-🚧 Currently under development.
